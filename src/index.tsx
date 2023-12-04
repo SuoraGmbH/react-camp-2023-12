@@ -1,3 +1,4 @@
-// import { render } from "react-dom";
-//
-// render(<div>Hello World</div>, document.getElementById("root"));
+import ReactDOM from "react-dom";
+
+const element = <h1>Hallo Köln!</h1>;
+ReactDOM.render(element, document.getElementById("root"));
