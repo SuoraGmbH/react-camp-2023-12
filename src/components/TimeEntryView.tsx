@@ -1,11 +1,11 @@
-import * as React from "react";
+import TimeEntry from "../domain/TimeEntry.ts";
 
 interface Props {
-  comment: string;
+  timeEntry: TimeEntry;
 }
 
-const TimeEntryView: React.FunctionComponent<Props> = (props) => {
-  return <div>{props.comment}</div>;
+const TimeEntryView = ({ timeEntry }: Props) => {
+  return <div>{timeEntry.comment}</div>;
 };
 
 export default TimeEntryView;

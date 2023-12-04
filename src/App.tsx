@@ -4,7 +4,14 @@ function App() {
   return (
     <div>
       <h1>Nennt mich gerne Christian</h1>
-      <TimeEntryView comment="Hallo Welt" />
+      <TimeEntryView
+        timeEntry={{
+          id: "nsiadijoas",
+          comment: "Hallo Welt",
+          start: new Date(),
+          end: new Date(),
+        }}
+      />
     </div>
   );
 }
