@@ -23,11 +23,13 @@ const TimeEntryList: React.FunctionComponent = () => {
     },
   ];
 
-  const listItems = timeEntries.map(({ id, comment }) => (
-    <li key={id}>{comment}</li>
-  ));
-
-  return <ul>{listItems}</ul>;
+  return (
+    <ul>
+      {timeEntries.map(({ id, comment }) => (
+        <li key={id}>{comment}</li>
+      ))}
+    </ul>
+  );
 };
 
 export default TimeEntryList;
