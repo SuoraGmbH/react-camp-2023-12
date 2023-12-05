@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Welcome /> > should do exactly what it did before! 1`] = `
+<div>
+  <div>
+    Hallo 
+    Michael
+  </div>
+</div>
+`;
