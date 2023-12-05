@@ -1,5 +1,6 @@
 import TimeEntryView from "./components/TimeEntryView.tsx";
 import TimeEntryForm from "./components/TimeEntryForm.tsx";
+import WiederholungsKomponente from "./components/WiederholungsKomponente.tsx";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
           end: new Date(),
         }}
       />
+
+      <WiederholungsKomponente name="Günther" />
+      <WiederholungsKomponente name="André" />
     </div>
   );
 }
