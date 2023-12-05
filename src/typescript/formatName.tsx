@@ -4,7 +4,7 @@ interface User {
 }
 
 // Typisierung des Rückgabetypen KANN nützlich sein, wenn die funktion komplex wird
-function formatName(user: User): string {
+export function formatName(user: User): string {
   // if (user.firstName.length > 5) {
   //   return null; // Gibt einen fehler, weil oben explizit string typisiert haben
   // }
