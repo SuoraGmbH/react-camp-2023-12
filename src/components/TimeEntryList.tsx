@@ -23,8 +23,8 @@ const TimeEntryList: React.FunctionComponent = () => {
     },
   ];
 
-  const listItems = timeEntries.map((timeEntry) => (
-    <li key={timeEntry.id}>{timeEntry.comment}</li>
+  const listItems = timeEntries.map(({ id, comment }) => (
+    <li key={id}>{comment}</li>
   ));
 
   return <ul>{listItems}</ul>;
