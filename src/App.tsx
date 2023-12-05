@@ -2,10 +2,12 @@ import TimeEntryView from "./components/TimeEntryView.tsx";
 import TimeEntryForm from "./components/TimeEntryForm.tsx";
 import WiederholungsKomponente from "./components/WiederholungsKomponente.tsx";
 import Counter from "./components/Counter.tsx";
+import TimeEntryList from "./components/TimeEntryList.tsx";
 
 function App() {
   return (
     <div>
+      <TimeEntryList />
       <Counter />
       <TimeEntryForm />
       <TimeEntryView
