@@ -23,11 +23,32 @@ const TimeEntryForm: React.FunctionComponent<Props> = ({ onTimeEntryAdd }) => {
       end: new Date(),
       comment: inputValue,
     });
+
+    // Hiermit leeren wir das inputValue
+    setInputValue("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input onChange={(event) => setInputValue(event.target.value)} />
+      {/*
+        Durch das value={inputValue} wird das Formularfeld eine controlled component.
+        Das bedeutet, dass wir nun über unseren JS-Code zu 100% kontrollieren können,
+        was im Formularfeld drinsteht und was nicht.
+
+        */}
+      <input
+        value={inputValue}
+        onChange={(event) => {
+          console.log("on change wird aufgerufen");
+          // In dieses Textfeld kann man jetzt keine 9 mehr tippen
+          if (event.target.value.includes("9")) {
+            return;
+          }
+
+          // In diesem Textfeld werden nun alle Buchstaben zu Großbuchstaben.
+          setInputValue(event.target.value.toUpperCase());
+        }}
+      />
       <button type="submit">Speichern</button>
       <p>{inputValue}</p>
     </form>
