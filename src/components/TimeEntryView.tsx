@@ -6,12 +6,7 @@ interface Props {
 }
 
 const TimeEntryView = ({ timeEntry: { comment } }: Props) => {
-  return (
-    <div>
-      <WiederholungsKomponente name="Alexander" />
-      {comment}
-    </div>
-  );
+  return <div>{comment}</div>;
 };
 
 export default TimeEntryView;
