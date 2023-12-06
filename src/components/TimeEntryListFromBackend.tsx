@@ -14,8 +14,8 @@ const timeEntryBackendResponseSchema = z.array(
   z.object({
     id: z.string(),
     comment: z.string(),
-    start: z.string(),
-    end: z.string(),
+    start: z.coerce.date(),
+    end: z.coerce.date(),
   }),
 );
 
@@ -28,15 +28,7 @@ const TimeEntryListFromBackend = () => {
       .then((data) => {
         const parsedData = timeEntryBackendResponseSchema.parse(data);
 
-        setTimeEntries(
-          parsedData.map((timeEntry) => {
-            return {
-              ...timeEntry,
-              start: new Date(timeEntry.start),
-              end: new Date(timeEntry.start),
-            };
-          }),
-        );
+        setTimeEntries(parsedData);
         // setTimeEntries(
         //   data.map((timeEntryResponse: TimeEntryBackend) => {
         //     return {
