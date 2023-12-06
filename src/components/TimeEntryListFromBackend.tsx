@@ -25,20 +25,8 @@ const TimeEntryListFromBackend = () => {
   useEffect(() => {
     fetch("http://localhost:3001/timeEntries")
       .then((response) => response.json())
-      .then((data) => {
-        const parsedData = timeEntryBackendResponseSchema.parse(data);
-
-        setTimeEntries(parsedData);
-        // setTimeEntries(
-        //   data.map((timeEntryResponse: TimeEntryBackend) => {
-        //     return {
-        //       ...timeEntryResponse,
-        //       start: new Date(timeEntryResponse.start),
-        //       end: new Date(timeEntryResponse.end),
-        //     };
-        //   }),
-        // );
-      });
+      .then(timeEntryBackendResponseSchema.parse)
+      .then(setTimeEntries);
   }, []);
 
   if (!timeEntries) {
