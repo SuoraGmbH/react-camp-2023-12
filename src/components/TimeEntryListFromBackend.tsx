@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import TimeEntry from "../domain/TimeEntry.ts";
 import TimeEntryList from "./TimeEntryList.tsx";
 
+type TimeEntryBackend = {
+  id: string;
+  comment: string;
+  start: string;
+  end: string;
+};
+
 const TimeEntryListFromBackend = () => {
   const [timeEntries, setTimeEntries] = useState<TimeEntry[]>();
 
@@ -11,7 +18,7 @@ const TimeEntryListFromBackend = () => {
       .then((data) => {
         console.log(data);
         setTimeEntries(
-          data.map((timeEntryResponse: any) => {
+          data.map((timeEntryResponse: TimeEntryBackend) => {
             return {
               id: timeEntryResponse.id,
               comment: timeEntryResponse.comment,
