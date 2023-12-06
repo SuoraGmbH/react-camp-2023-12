@@ -8,10 +8,7 @@ interface Props {
 const GithubRepoStatsQuery: React.FunctionComponent<Props> = ({ repoName }) => {
   const { data } = useQuery({
     queryFn: async () => {
-      const response = await fetch(
-        `https://api.github.com/repos/${repoName}`,
-        {},
-      );
+      const response = await fetch(`https://api.github.com/repos/${repoName}`);
 
       return response.json();
     },
