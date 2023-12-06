@@ -3,13 +3,6 @@ import TimeEntry from "../domain/TimeEntry.ts";
 import TimeEntryList from "./TimeEntryList.tsx";
 import { z } from "zod";
 
-type TimeEntryBackend = {
-  id: string;
-  comment: string;
-  start: string;
-  end: string;
-};
-
 const timeEntryBackendResponseSchema = z.array(
   z.object({
     id: z.string(),
