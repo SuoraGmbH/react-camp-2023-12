@@ -75,7 +75,7 @@ describe("<DynamicTimeEntryList />", () => {
   });
 
   it("snapshot after submit", async () => {
-    const { container } = render(<DynamicTimeEntryList />);
+    render(<DynamicTimeEntryList />);
     const user = userEvent.setup();
 
     await user.type(

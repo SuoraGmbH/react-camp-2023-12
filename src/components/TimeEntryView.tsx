@@ -1,5 +1,4 @@
 import TimeEntry from "../domain/TimeEntry.ts";
-import WiederholungsKomponente from "./WiederholungsKomponente.tsx";
 
 interface Props {
   timeEntry: TimeEntry;
