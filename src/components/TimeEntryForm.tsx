@@ -42,7 +42,7 @@ const TimeEntryForm: React.FunctionComponent<Props> = ({ onTimeEntryAdd }) => {
           value={inputValue}
           name="comment"
           onChange={(event) => {
-            console.log("on change wird aufgerufen");
+            // console.log("on change wird aufgerufen");
             // In dieses Textfeld kann man jetzt keine 9 mehr tippen
             if (event.target.value.includes("9")) {
               return;
