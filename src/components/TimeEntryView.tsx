@@ -4,8 +4,12 @@ interface Props {
   timeEntry: TimeEntry;
 }
 
-const TimeEntryView = ({ timeEntry: { comment } }: Props) => {
-  return <div>{comment}</div>;
+const TimeEntryView = ({ timeEntry: { comment, start } }: Props) => {
+  return (
+    <div>
+      {start.toLocaleDateString()}: {comment}
+    </div>
+  );
 };
 
 export default TimeEntryView;
