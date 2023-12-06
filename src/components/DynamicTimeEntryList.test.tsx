@@ -24,6 +24,22 @@ describe("<DynamicTimeEntryList />", () => {
     expect(screen.getAllByRole("listitem")).toHaveLength(3);
   });
 
+  it("should contain the expected list items", () => {
+    render(<DynamicTimeEntryList />);
+
+    expect(
+      screen
+        .getAllByRole("listitem")
+        .map((element) => element.textContent?.toLowerCase()),
+    ).toMatchInlineSnapshot(`
+      [
+        "hallo welt",
+        "hallo welt 2",
+        "hallo dritter eintrag",
+      ]
+    `);
+  });
+
   it("should contain four list items after the user typed into the textfield and clicked the submit button", async () => {
     render(<DynamicTimeEntryList />);
     const user = userEvent.setup();
