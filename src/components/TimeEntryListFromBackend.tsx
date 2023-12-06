@@ -20,8 +20,7 @@ const TimeEntryListFromBackend = () => {
         setTimeEntries(
           data.map((timeEntryResponse: TimeEntryBackend) => {
             return {
-              id: timeEntryResponse.id,
-              comment: timeEntryResponse.comment,
+              ...timeEntryResponse,
               start: new Date(timeEntryResponse.start),
               end: new Date(timeEntryResponse.end),
             };
