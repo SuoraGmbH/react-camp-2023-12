@@ -10,7 +10,7 @@ describe("<TimeEntryForm />", () => {
 
   it("should create a new time entry when the user submits the form", async () => {
     // vitest.useFakeTimers({ shouldAdvanceTime: true, advanceTimeDelta: 0 });
-    // vitest.setSystemTime(new Date("2023-12-06 10:40:00"));
+    vitest.setSystemTime(new Date("2023-12-06 10:40:00"));
     const handleTimeEntryAddMock = vitest.fn();
     render(<TimeEntryForm onTimeEntryAdd={handleTimeEntryAddMock} />);
     const user = userEvent.setup();
@@ -24,7 +24,8 @@ describe("<TimeEntryForm />", () => {
     expect(handleTimeEntryAddMock).toHaveBeenCalledWith(
       expect.objectContaining({
         comment: "UNIT TEST",
-        // start: new Date(),
+        start: new Date(),
+        end: new Date(),
       }),
     );
   });
