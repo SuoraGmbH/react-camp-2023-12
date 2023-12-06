@@ -1,17 +1,7 @@
-import { useEffect, useState } from "react";
-import { GithubRepoData } from "../domain/GithubRepoData.tsx";
+import useFetchData from "./useFetchData.ts";
 
 const useRepoData = () => {
-  const [repoData, setRepoData] = useState<GithubRepoData>();
-  useEffect(() => {
-    fetch("https://api.github.com/repos/facebook/react").then((response) => {
-      response.json().then((data) => {
-        setRepoData(data);
-      });
-    });
-  }, []);
-
-  return repoData;
+  return useFetchData("https://api.github.com/repos/facebook/react");
 };
 
 export default useRepoData;
