@@ -30,10 +30,10 @@ const DynamicTimeEntryList: React.FunctionComponent = () => {
   };
 
   return (
-    <>
+    <div style={{ border: "5px solid pink" }}>
       <TimeEntryForm onTimeEntryAdd={handleTimeEntryAdd} />
       <TimeEntryList timeEntries={timeEntries} />
-    </>
+    </div>
   );
 };
 

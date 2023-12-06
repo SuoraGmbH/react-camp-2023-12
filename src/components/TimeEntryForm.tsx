@@ -36,19 +36,23 @@ const TimeEntryForm: React.FunctionComponent<Props> = ({ onTimeEntryAdd }) => {
         was im Formularfeld drinsteht und was nicht.
 
         */}
-      <input
-        value={inputValue}
-        onChange={(event) => {
-          console.log("on change wird aufgerufen");
-          // In dieses Textfeld kann man jetzt keine 9 mehr tippen
-          if (event.target.value.includes("9")) {
-            return;
-          }
+      <label>
+        Kommentar
+        <input
+          value={inputValue}
+          name="comment"
+          onChange={(event) => {
+            console.log("on change wird aufgerufen");
+            // In dieses Textfeld kann man jetzt keine 9 mehr tippen
+            if (event.target.value.includes("9")) {
+              return;
+            }
 
-          // In diesem Textfeld werden nun alle Buchstaben zu Großbuchstaben.
-          setInputValue(event.target.value.toUpperCase());
-        }}
-      />
+            // In diesem Textfeld werden nun alle Buchstaben zu Großbuchstaben.
+            setInputValue(event.target.value.toUpperCase());
+          }}
+        />
+      </label>
       <button type="submit">Speichern</button>
       <p>{inputValue}</p>
     </form>
