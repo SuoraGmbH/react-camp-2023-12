@@ -33,9 +33,9 @@ describe("<DynamicTimeEntryList />", () => {
         .map((element) => element.textContent?.toLowerCase()),
     ).toMatchInlineSnapshot(`
       [
-        "hallo welt",
-        "hallo welt 2",
-        "hallo dritter eintrag",
+        "6.12.2023: hallo welt",
+        "6.12.2023: hallo welt 2",
+        "6.12.2023: hallo dritter eintrag",
       ]
     `);
   });
@@ -99,10 +99,10 @@ describe("<DynamicTimeEntryList />", () => {
         .map((element) => element.textContent?.toLowerCase()),
     ).toMatchInlineSnapshot(`
       [
-        "hallo welt",
-        "hallo welt 2",
-        "hallo dritter eintrag",
-        "hallo testing library",
+        "6.12.2023: hallo welt",
+        "6.12.2023: hallo welt 2",
+        "6.12.2023: hallo dritter eintrag",
+        "6.12.2023: hallo testing library",
       ]
     `);
   });
