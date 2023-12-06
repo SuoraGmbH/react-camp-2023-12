@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import TimeEntry from "../domain/TimeEntry.ts";
 import TimeEntryList from "./TimeEntryList.tsx";
+import { z } from "zod";
 
 type TimeEntryBackend = {
   id: string;
@@ -9,6 +10,15 @@ type TimeEntryBackend = {
   end: string;
 };
 
+const timeEntryBackendResponseSchema = z.array(
+  z.object({
+    id: z.string(),
+    comment: z.string(),
+    start: z.string(),
+    end: z.string(),
+  }),
+);
+
 const TimeEntryListFromBackend = () => {
   const [timeEntries, setTimeEntries] = useState<TimeEntry[]>();
 
@@ -16,16 +26,26 @@ const TimeEntryListFromBackend = () => {
     fetch("http://localhost:3001/timeEntries")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        const parsedData = timeEntryBackendResponseSchema.parse(data);
+
         setTimeEntries(
-          data.map((timeEntryResponse: TimeEntryBackend) => {
+          parsedData.map((timeEntry) => {
             return {
-              ...timeEntryResponse,
-              start: new Date(timeEntryResponse.start),
-              end: new Date(timeEntryResponse.end),
+              ...timeEntry,
+              start: new Date(timeEntry.start),
+              end: new Date(timeEntry.start),
             };
           }),
         );
+        // setTimeEntries(
+        //   data.map((timeEntryResponse: TimeEntryBackend) => {
+        //     return {
+        //       ...timeEntryResponse,
+        //       start: new Date(timeEntryResponse.start),
+        //       end: new Date(timeEntryResponse.end),
+        //     };
+        //   }),
+        // );
       });
   }, []);
 
