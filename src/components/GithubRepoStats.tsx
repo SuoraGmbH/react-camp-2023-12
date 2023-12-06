@@ -4,17 +4,17 @@ import { GithubRepoData } from "../domain/GithubRepoData.tsx";
 const GithubRepoStats: React.FunctionComponent = () => {
   const [repoData, setRepoData] = useState<GithubRepoData>();
 
-  console.log("Komponente rendert");
-  useEffect(() => {
-    console.log(
-      "Dies hier wird nur NACH dem *INITIALEN* rendering der Komponente ausgeführt",
-    );
-  }, []);
+  // console.log("Komponente rendert");
+  // useEffect(() => {
+  //   console.log(
+  //     "Dies hier wird nur NACH dem *INITIALEN* rendering der Komponente ausgeführt",
+  //   );
+  // }, []);
 
   useEffect(() => {
     fetch("https://api.github.com/repos/facebook/react").then((response) => {
       response.json().then((data) => {
-        console.log(data);
+        // console.log(data);
         setRepoData(data);
       });
     });
